@@ -1,0 +1,31 @@
+export { CpuMonitor } from "./cpu.js";
+export { MemoryMonitor } from "./memory.js";
+export { GpuMonitor } from "./gpu.js";
+export { NetworkMonitor } from "./network.js";
+export { DiskMonitor } from "./disk.js";
+export { ProcessMonitor } from "./process.js";
+export * from "./types.js";
+import { CpuMonitor } from "./cpu.js";
+import { MemoryMonitor } from "./memory.js";
+import { GpuMonitor } from "./gpu.js";
+import { NetworkMonitor } from "./network.js";
+import { DiskMonitor } from "./disk.js";
+import { ProcessMonitor } from "./process.js";
+import type { SystemOverview } from "./types.js";
+export declare class SystemMonitor {
+    private cpuMonitor;
+    private memoryMonitor;
+    private gpuMonitor;
+    private networkMonitor;
+    private diskMonitor;
+    private processMonitor;
+    constructor();
+    getSystemOverview(includeAnalysis?: boolean): Promise<SystemOverview>;
+    get cpu(): CpuMonitor;
+    get memory(): MemoryMonitor;
+    get gpu(): GpuMonitor;
+    get network(): NetworkMonitor;
+    get disk(): DiskMonitor;
+    get process(): ProcessMonitor;
+    private analyzeSystemPerformance;
+}
